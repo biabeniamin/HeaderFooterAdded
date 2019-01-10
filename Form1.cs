@@ -16,5 +16,14 @@ namespace HeaderFooterAdded
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            if (DialogResult.OK == openFileDialog.ShowDialog())
+            {
+
+            }
+        }
     }
 }
