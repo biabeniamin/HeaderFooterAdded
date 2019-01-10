@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,6 +21,8 @@ namespace HeaderFooterAdded
         private void button1_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
+            string folderPath;
+
             openFileDialog.Filter = "Image files (*.jpg, *.jpeg, *.jpe, *.jfif, *.png) | *.jpg; *.jpeg; *.jpe; *.jfif; *.png";
             if (DialogResult.OK == openFileDialog.ShowDialog())
             {
@@ -27,6 +30,12 @@ namespace HeaderFooterAdded
                 Image result;
 
                 result = Adder.AddHeaderAndFooter(image);
+
+                folderPath = Path.GetDirectoryName(openFileDialog.FileName) + "\\Output";
+                if (!Directory.Exists(folderPath))
+                {
+                    Directory.CreateDirectory(folderPath);
+                }
 
                 result.Save(@"D:\Beni\C#\HeaderFooterAdded\bin\Debug\a.jpg");
             }
