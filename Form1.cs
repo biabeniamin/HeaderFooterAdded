@@ -24,7 +24,7 @@ namespace HeaderFooterAdded
 
             folderPath = path;
 
-            folderPath = Path.GetDirectoryName(path) + "\\Output";
+            folderPath = path + "\\Output";
             if (!Directory.Exists(folderPath))
             {
                 Directory.CreateDirectory(folderPath);
@@ -44,7 +44,7 @@ namespace HeaderFooterAdded
 
                 result = Adder.AddHeaderAndFooter(image);
 
-                CreateOutputFolder(openFileDialog.FileName);
+                CreateOutputFolder(Path.GetDirectoryName(openFileDialog.FileName));
                 filePath = Path.GetDirectoryName(openFileDialog.FileName) + "\\Output\\" + Path.GetFileName(openFileDialog.FileName);
 
                 result.Save(filePath);
@@ -54,7 +54,6 @@ namespace HeaderFooterAdded
         private void button2_Click(object sender, EventArgs e)
         {
             FolderBrowserDialog folderBrowser = new FolderBrowserDialog();
-            folderBrowser.SelectedPath = @"D:\Beni\C#\HeaderFooterAdded\bin\Debug\New folder";
             if (DialogResult.OK == folderBrowser.ShowDialog())
             {
                 string path = folderBrowser.SelectedPath;
