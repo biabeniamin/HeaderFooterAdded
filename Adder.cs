@@ -9,21 +9,18 @@ namespace HeaderFooterAdded
 {
     public static class Adder
     {
-        private static Image GetHeader()
+        private static Image GetTemplate()
         {
-            return Image.FromFile("header.jpg");
+            return Image.FromFile("template.jpg");
         }
 
-        private static Image GetFooter()
-        {
-            return Image.FromFile("footer.jpg");
-        }
 
         public static Image AddHeaderAndFooter(Image image)
         {
-            Image img = image;
+            Image template = GetTemplate();
 
-            return img;
+
+            return template;
         }
 
     }
