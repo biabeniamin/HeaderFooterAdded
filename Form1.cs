@@ -23,7 +23,11 @@ namespace HeaderFooterAdded
             openFileDialog.Filter = "Image files (*.jpg, *.jpeg, *.jpe, *.jfif, *.png) | *.jpg; *.jpeg; *.jpe; *.jfif; *.png";
             if (DialogResult.OK == openFileDialog.ShowDialog())
             {
+                Image image = Image.FromFile(openFileDialog.FileName);
 
+                image = Adder.AddHeaderAndFooter(image);
+
+                image.Save(openFileDialog.FileName)
             }
         }
     }

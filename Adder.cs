@@ -9,10 +9,13 @@ namespace HeaderFooterAdded
 {
     public static class Adder
     {
-        public static void AddHeaderAndFooter(Image image)
+        public static Image AddHeaderAndFooter(Image image)
         {
+            Image img = image;
 
+            return img;
         }
 
     }
 }
+
