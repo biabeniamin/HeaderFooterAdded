@@ -11,9 +11,9 @@ namespace HeaderFooterAdded
     public static class Adder
     {
         private const int START_X = 0;
-        private const int START_Y = 150;
+        private const int START_Y = 220;
         private const int END_X = 0;
-        private const int END_Y = -150;
+        private const int END_Y = 330;
         private static Image GetTemplate()
         {
             return Image.FromFile("template.jpg");
