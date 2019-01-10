@@ -19,6 +19,9 @@ namespace HeaderFooterAdded
         {
             Image template = GetTemplate();
 
+            Graphics graphics = Graphics.FromImage(template);
+
+            graphics.DrawImage(image, new Point(0, 100));
 
             return template;
         }
