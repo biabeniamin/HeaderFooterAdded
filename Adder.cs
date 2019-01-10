@@ -5,12 +5,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
-
 namespace HeaderFooterAdded
 {
+
     public static class Adder
     {
+        private const int START_X = 0;
+        private const int START_Y = 150;
+        private const int END_X = 0;
+        private const int END_Y = -150;
         private static Image GetTemplate()
         {
             return Image.FromFile("template.jpg");
@@ -20,10 +23,14 @@ namespace HeaderFooterAdded
         public static Image AddHeaderAndFooter(Image image)
         {
             Image template = GetTemplate();
+            Point startPoint;
+            Size imageSize;
 
             Graphics graphics = Graphics.FromImage(template);
 
-            graphics.DrawImage(image, new Rectangle(new Point(0,150), new Size(image.Width,600)));
+            startPoint = new Point(START_X, START_Y);
+            imageSize = new Size(image.Width + END_X, image.Height - END_Y - START_Y);
+            graphics.DrawImage(image, new Rectangle(startPoint, imageSize));
 
             return template;
         }
