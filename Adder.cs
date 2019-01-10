@@ -25,11 +25,17 @@ namespace HeaderFooterAdded
             Image template = GetTemplate();
             Point startPoint;
             Size imageSize;
+            float initialRatio;
 
             Graphics graphics = Graphics.FromImage(template);
 
             startPoint = new Point(START_X, START_Y);
             imageSize = new Size(image.Width + END_X, image.Height - END_Y - START_Y);
+
+            //repair aspect ratio
+            initialRatio = (float)image.Width / image.Height;
+            imageSize.Width = (int)((image.Height - END_Y - START_Y) * initialRatio);
+
             graphics.DrawImage(image, new Rectangle(startPoint, imageSize));
 
             return template;
