@@ -31,5 +31,10 @@ namespace HeaderFooterAdded
                 result.Save(@"D:\Beni\C#\HeaderFooterAdded\bin\Debug\a.jpg");
             }
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
