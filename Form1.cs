@@ -18,10 +18,23 @@ namespace HeaderFooterAdded
             InitializeComponent();
         }
 
+        private void CreateOutputFolder(string path)
+        {
+            string folderPath;
+
+            folderPath = path;
+
+            folderPath = Path.GetDirectoryName(path) + "\\Output";
+            if (!Directory.Exists(folderPath))
+            {
+                Directory.CreateDirectory(folderPath);
+            }
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
-            string folderPath;
+            string filePath;
 
             openFileDialog.Filter = "Image files (*.jpg, *.jpeg, *.jpe, *.jfif, *.png) | *.jpg; *.jpeg; *.jpe; *.jfif; *.png";
             if (DialogResult.OK == openFileDialog.ShowDialog())
@@ -31,13 +44,10 @@ namespace HeaderFooterAdded
 
                 result = Adder.AddHeaderAndFooter(image);
 
-                folderPath = Path.GetDirectoryName(openFileDialog.FileName) + "\\Output";
-                if (!Directory.Exists(folderPath))
-                {
-                    Directory.CreateDirectory(folderPath);
-                }
+                CreateOutputFolder(openFileDialog.FileName);
+                filePath = Path.GetDirectoryName(openFileDialog.FileName) + "\\Output\\" + Path.GetFileName(openFileDialog.FileName);
 
-                result.Save(@"D:\Beni\C#\HeaderFooterAdded\bin\Debug\a.jpg");
+                result.Save(filePath);
             }
         }
 
