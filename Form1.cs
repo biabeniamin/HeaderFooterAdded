@@ -20,6 +20,7 @@ namespace HeaderFooterAdded
         private void button1_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Image files (*.jpg, *.jpeg, *.jpe, *.jfif, *.png) | *.jpg; *.jpeg; *.jpe; *.jfif; *.png";
             if (DialogResult.OK == openFileDialog.ShowDialog())
             {
 
