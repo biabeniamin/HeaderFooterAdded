@@ -24,10 +24,11 @@ namespace HeaderFooterAdded
             if (DialogResult.OK == openFileDialog.ShowDialog())
             {
                 Image image = Image.FromFile(openFileDialog.FileName);
+                Image result;
 
-                image = Adder.AddHeaderAndFooter(image);
+                result = Adder.AddHeaderAndFooter(image);
 
-                image.Save(openFileDialog.FileName);
+                result.Save(@"D:\Beni\C#\HeaderFooterAdded\bin\Debug\a.jpg");
             }
         }
     }

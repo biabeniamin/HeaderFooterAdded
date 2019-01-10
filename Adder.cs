@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
+
 namespace HeaderFooterAdded
 {
     public static class Adder
@@ -21,7 +23,7 @@ namespace HeaderFooterAdded
 
             Graphics graphics = Graphics.FromImage(template);
 
-            graphics.DrawImage(image, new Point(0, 100));
+            graphics.DrawImage(image, new Rectangle(new Point(0,150), new Size(image.Width,600)));
 
             return template;
         }
