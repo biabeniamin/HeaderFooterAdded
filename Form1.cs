@@ -34,7 +34,11 @@ namespace HeaderFooterAdded
 
         private void button2_Click(object sender, EventArgs e)
         {
+            FolderBrowserDialog folderBrowser = new FolderBrowserDialog();
+            if(DialogResult.OK == folderBrowser.ShowDialog())
+            {
 
+            }
         }
     }
 }
