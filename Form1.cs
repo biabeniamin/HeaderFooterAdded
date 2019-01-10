@@ -27,7 +27,7 @@ namespace HeaderFooterAdded
 
                 image = Adder.AddHeaderAndFooter(image);
 
-                image.Save(openFileDialog.FileName)
+                image.Save(openFileDialog.FileName);
             }
         }
     }
