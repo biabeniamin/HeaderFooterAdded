@@ -54,9 +54,24 @@ namespace HeaderFooterAdded
         private void button2_Click(object sender, EventArgs e)
         {
             FolderBrowserDialog folderBrowser = new FolderBrowserDialog();
-            if(DialogResult.OK == folderBrowser.ShowDialog())
+            folderBrowser.SelectedPath = @"D:\Beni\C#\HeaderFooterAdded\bin\Debug\New folder";
+            if (DialogResult.OK == folderBrowser.ShowDialog())
             {
+                string path = folderBrowser.SelectedPath;
+                string[] files = Directory.GetFiles(path);
+                
+                CreateOutputFolder(path);
 
+                foreach (string file in files)
+                {
+                    Image result;
+                    string filePath;
+
+                    result = Adder.AddHeaderAndFooter(Image.FromFile(file));
+
+                    filePath = path + "\\Output\\" + Path.GetFileName(file);
+                    result.Save(filePath);
+                }
             }
         }
     }
